@@ -12,19 +12,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
-import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -34,7 +24,7 @@ STATICFILES_DIRS = (
 SECRET_KEY = 'cna*7@g5=of+1s4!7(#%g)mymssn5!6803)@&59udb)ia(@qgz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -89,12 +79,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'invoice_app',
-        'USER': '<db_username>',
-        'PASSWORD': '<password>',
-        'HOST': '<db_host>',
-        'PORT': '<db_port>',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME' : 'invoice_app',
+        'USER' : 'root',
+        'PASSWORD' : '',
+        'HOST' : 'localhost',
+        'PORT' : '3306',
     }
 }
 
